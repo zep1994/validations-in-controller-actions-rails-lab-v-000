@@ -8,25 +8,20 @@ class PostsController < ApplicationController
   end
 
   def create
-    @author = Author.create!(author_params)
-
-    @author = Author.new(author_params)
-    if @author.valid?
-      @author.save
-      redirect_to author_params(@author)
-    else
-      render :new
-    end
+    
   end
 
   def edit
   end
 
-#  def update
-  #   @post.update(post_params)
-  #
-  #   redirect_to post_path(@post)
-  # end
+ def update
+     #@post.update(post_params)
+     @post = Post.find(params[:id])
+     if @post.update(post_params)
+    redirect_to post_path(@post)
+  else 
+    render :edit
+   end
 
 
   private
