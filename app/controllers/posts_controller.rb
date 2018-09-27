@@ -14,19 +14,21 @@ class PostsController < ApplicationController
     if @author.valid?
       @author.save
       redirect_to author_params(@author)
+    else 
+      render :new
     end
   end
-  
+
   def edit
   end
 
 #  def update
   #   @post.update(post_params)
-  # 
+  #
   #   redirect_to post_path(@post)
   # end
 
-  
+
   private
 
   def post_params
